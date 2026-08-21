@@ -7,10 +7,10 @@ MoveSoundTable:
 	db SFX_BATTLE_0B,          $01, $80 ; COMET_PUNCH
 	db SFX_BATTLE_0D,          $00, $40 ; MEGA_PUNCH
 	db SFX_SILPH_SCOPE,        $00, $ff ; PAY_DAY
-	db SFX_BATTLE_0D,          $10, $60 ; FIRE_PUNCH
-	db SFX_BATTLE_0D,          $20, $80 ; ICE_PUNCH
-	db SFX_BATTLE_0D,          $00, $a0 ; THUNDERPUNCH
-	db SFX_DAMAGE,             $00, $80 ; SCRATCH
+	db SFX_BATTLE_0D,          $10, $60 ; FIRE_PUNCH - now reused for other moves
+	db SFX_BATTLE_14,          $00, $20 ; ICE_PUNCH - unused, reused as backup for CONFUSION
+	db SFX_BATTLE_0D,          $00, $a0 ; THUNDERPUNCH - now unused
+	db SFX_BATTLE_16,          $00, $80 ; SCRATCH
 	db SFX_BATTLE_0F,          $20, $40 ; VICEGRIP
 	db SFX_BATTLE_0F,          $00, $80 ; GUILLOTINE
 	db SFX_BATTLE_0E,          $00, $a0 ; RAZOR_WIND
@@ -49,7 +49,7 @@ MoveSoundTable:
 	db SFX_BATTLE_0B,          $00, $40 ; ROAR
 	db SFX_BATTLE_35,          $00, $80 ; SING
 	db SFX_BATTLE_27,          $40, $60 ; SUPERSONIC
-	db SFX_BATTLE_27,          $00, $80 ; SONICBOOM
+	db SFX_BATTLE_27,          $3a, $70 ; SONICBOOM
 	db SFX_BATTLE_27,          $ff, $40 ; DISABLE
 	db SFX_BATTLE_2A,          $80, $c0 ; ACID
 	db SFX_BATTLE_19,          $10, $a0 ; EMBER
@@ -91,9 +91,9 @@ MoveSoundTable:
 	db SFX_BATTLE_14,          $01, $e0 ; ROCK_THROW
 	db SFX_BATTLE_29,          $0f, $e0 ; EARTHQUAKE
 	db SFX_BATTLE_29,          $11, $20 ; FISSURE
-	db SFX_DAMAGE,             $10, $40 ; DIG
+	db SFX_BATTLE_16,          $10, $40 ; DIG
 	db SFX_BATTLE_0F,          $10, $c0 ; TOXIC
-	db SFX_BATTLE_14,          $00, $20 ; CONFUSION
+	db SFX_BATTLE_27,          $50, $b0 ; CONFUSION
 	db SFX_PSYCHIC_M,          $00, $80 ; PSYCHIC_M
 	db SFX_BATTLE_35,          $11, $18 ; HYPNOSIS
 	db SFX_BATTLE_09,          $20, $c0 ; MEDITATE
@@ -165,6 +165,6 @@ MoveSoundTable:
 	db SFX_BATTLE_26,          $f0, $ff ; SUPER_FANG
 	db SFX_NOT_VERY_EFFECTIVE, $01, $ff ; SLASH
 	db SFX_BATTLE_2C,          $d8, $04 ; SUBSTITUTE
-	db SFX_BATTLE_0B,          $00, $80 ; STRUGGLE
+	db SFX_BATTLE_22,          $10, $80 ; STRUGGLE
 	assert_table_length NUM_ATTACKS
 	db SFX_BATTLE_0B,          $00, $80
