@@ -7,14 +7,14 @@ TypeNames:
 	dw .Poison
 	dw .Ground
 	dw .Rock
-	dw .Bird
-	dw .Bug
-	dw .Ghost
+	dw .Void
+	dw .Bug	
 
 REPT UNUSED_TYPES_END - UNUSED_TYPES
 	dw .Normal
 ENDR
 
+	dw .Ghost
 	dw .Fire
 	dw .Water
 	dw .Grass
@@ -37,7 +37,7 @@ ENDR
 .Ice:      db "ICE@"
 .Ground:   db "GROUND@"
 .Rock:     db "ROCK@"
-.Bird:     db "BIRD@"
+.Void:	   db "VOID@"
 .Bug:      db "BUG@"
 .Ghost:    db "GHOST@"
 .Dragon:   db "DRAGON@"

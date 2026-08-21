@@ -935,13 +935,6 @@ DoGrowlSpecialEffects:
 	call z, AnimationCleanOAM ; clean up at the end of the subanimation
 	ret
 
-; this is associated with Tail Whip, but Tail Whip doesn't use any subanimations
-TailWhipAnimationUnused:
-	ld a, 1
-	ld [wSubAnimCounter], a
-	ld c, 20
-	jp DelayFrames
-
 INCLUDE "data/battle_anims/special_effect_pointers.asm"
 
 AnimationDelay10:
@@ -1096,10 +1089,6 @@ SetAnimationBGPalette:
 .next
 	ldh [rBGP], a
 	ret
-
-AnimationUnusedShakeScreen: ; unreferenced
-; Shakes the screen for a while.
-	ld b, $5
 
 AnimationShakeScreenVertically:
 	predef_jump PredefShakeScreenVertically
@@ -1382,11 +1371,6 @@ AnimationFlashMonPic:
 	ld a, [wEnemyMonSpecies]
 	ld [wChangeMonPicEnemyTurnSpecies], a
 	jp ChangeMonPic
-
-AnimationFlashEnemyMonPic:
-; Flashes the enemy mon's sprite on and off
-	ld hl, AnimationFlashMonPic
-	jp CallWithTurnFlipped
 
 AnimationShowMonPic:
 	xor a ; TILEMAP_MON_PIC
@@ -1884,7 +1868,7 @@ AnimationWavyScreen:
 .loop
 	;joenote - Sync hSCX to the first line. This avoids the top 3 pixels from being overridden by the vsync interrupt
 	ld a, [hl]
-	ld [hSCX], a
+	ldh [hSCX], a
 	push hl
 .innerLoop
 	call WavyScreen_SetSCX
@@ -1901,7 +1885,7 @@ AnimationWavyScreen:
 	dec c
 	jr nz, .loop
 	xor a
-	ld [hSCX], a	;joenote - reset the X scroll
+	ldh [hSCX], a	;joenote - reset the X scroll
 	ldh [hWY], a
 	call SaveScreenTilesToBuffer2
 	call ClearScreen

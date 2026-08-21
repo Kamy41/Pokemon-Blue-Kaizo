@@ -1236,5 +1236,3 @@ INCLUDE "data/battle_anims/base_coords.asm"
 
 FrameBlock00:
 	db 0 ; #
-
-	db $00 ; unused
